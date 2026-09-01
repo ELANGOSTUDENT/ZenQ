@@ -1,6 +1,7 @@
 package com.zenq.zenq.service;
 
 import com.zenq.zenq.entity.Ticket;
+import com.zenq.zenq.entity.TicketStatus;
 import com.zenq.zenq.exception.TicketNotFoundException;
 import com.zenq.zenq.repository.TicketRepository;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class TicketService {
     }
 
     public Ticket createTicket(Ticket ticket) {
+        ticket.setStatus(TicketStatus.PENDING);
         return ticketRepository.save(ticket);
     }
 
